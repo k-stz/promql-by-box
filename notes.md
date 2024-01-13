@@ -7,7 +7,7 @@ Allows you to view your local machines metrics
 ## Node Exporter - expose metrics
 exposes a wide variety of hardware- and kernel-releated metrics
 
-`docker run -p 9100:9100 --name node-exporter bitnami/node-exporter:latest`
+`docker run -p 9100:9100 --rm --name node-exporter bitnami/node-exporter:1.7.0`
 
 List the metrics:
 ```bash
@@ -19,7 +19,7 @@ curl localhost:9100/metrics
 ## Prometheus - collect metrics
 TSDB will scrape the metrics.
 
-`docker run -p 9090:9090 --name prometheus -v prometheus-config:/etc/prometheus/ prom/prometheus`
+`docker run -p 9090:9090 --rm --name prometheus -v prometheus-config:/etc/prometheus/ prom/prometheus:v2.48.1`
 
 Prometheus needs t be configured to scrape the metrics, pass it `--conifg.file./promethues.yml`:
 ```yaml
